@@ -48,7 +48,7 @@ class CalculatorTest extends TestCase
 
     public function testAddWithNegativeNumbers()
     {
-        // Arrange
+        //  Arrange
         $a = -5;
         $b = -3;
 
