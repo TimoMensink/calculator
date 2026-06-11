@@ -46,11 +46,36 @@ class CalculatorTest extends TestCase
      * - Assert
      */
 
+    public function testAddWithNegativeNumbers()
+    {
+        // Arrange
+        $a = -5;
+        $b = -3;
+
+        // Act
+        $result = $this->calculator->add($a, $b);
+
+        // Assert
+        $this->assertEquals(-8, $result);
+    }
+
     /*
      * OPDRACHT:
      * Maak een test voor subtract().
      * Test een normale situatie (bijvoorbeeld 10 - 4).
      */
+    public function testSubtract()
+    {
+        // Arrange
+        $a = 10;
+        $b = 4;
+
+        // Act
+        $result = $this->calculator->subtract($a, $b);
+
+        // Assert
+        $this->assertEquals(6, $result);
+    }
 
     /*
      * OPDRACHT:
@@ -59,6 +84,19 @@ class CalculatorTest extends TestCase
      * - een normale vermenigvuldiging
      * - vermenigvuldigen met 0
      */
+
+        public function testMultiply()
+        {
+            // Arrange
+            $a = 5;
+            $b = 3;
+    
+            // Act
+            $result = $this->calculator->multiply($a, $b);
+    
+            // Assert
+            $this->assertEquals(15, $result);
+        }
 
     /*
      * OPDRACHT:
@@ -71,6 +109,32 @@ class CalculatorTest extends TestCase
      * $this->expectException(InvalidArgumentException::class);
      */
 
+    public function testDivide()
+    {
+        // Arrange
+        $a = 10;
+        $b = 2;
+
+        // Act
+        $result = $this->calculator->divide($a, $b);
+
+        // Assert
+        $this->assertEquals(5, $result);
+    }
+
+    public function testDivideByZero()
+    {
+        // Arrange
+        $a = 10;
+        $b = 0;
+
+        // Assert
+        $this->expectException(InvalidArgumentException::class);
+
+        // Act
+        $this->calculator->divide($a, $b);
+    }
+
     /* =========================
      * POWER
      * ========================= */
@@ -82,6 +146,31 @@ class CalculatorTest extends TestCase
      * - 2 tot de macht 3
      * - exponent 0 (uitkomst moet 1 zijn)
      */
+    public function testPower()
+    {
+        // Arrange
+        $base = 2;
+        $exponent = 3;
+
+        // Act
+        $result = $this->calculator->power($base, $exponent);
+
+        // Assert
+        $this->assertEquals(8, $result);
+    }
+
+    public function testPowerWithZeroExponent()
+    {
+        // Arrange
+        $base = 2;
+        $exponent = 0;
+
+        // Act
+        $result = $this->calculator->power($base, $exponent);
+
+        // Assert
+        $this->assertEquals(1, $result);
+    }
 
     /* =========================
      * PERCENTAGE
@@ -96,6 +185,19 @@ class CalculatorTest extends TestCase
      * - een percentage boven de 100%
      */
 
+    public function testPercentage()
+    {
+        // Arrange
+        $total = 200;
+        $percentage = 0.10;
+
+        // Act
+        $result = $this->calculator->percentage($total, $percentage);
+
+        // Assert
+        $this->assertEquals(20, $result);
+    }
+
     /* =========================
      * AVERAGE
      * ========================= */
@@ -109,6 +211,18 @@ class CalculatorTest extends TestCase
      * - lege array moet een exception geven
      */
 
+    public function testAverage()
+    {
+        // Arrange
+        $numbers = [10, 20];
+
+        // Act
+        $result = $this->calculator->average($numbers);
+
+        // Assert
+        $this->assertEquals(15, $result);
+    }
+
     /* =========================
      * HIGHEST
      * ========================= */
@@ -121,6 +235,18 @@ class CalculatorTest extends TestCase
      * - negatieve getallen
      */
 
+    public function testHighest()
+    {
+        // Arrange
+        $numbers = [10, 20, 5];
+
+        // Act
+        $result = $this->calculator->highest($numbers);
+
+        // Assert
+        $this->assertEquals(20, $result);
+    }
+
     /* =========================
      * LOWEST
      * ========================= */
@@ -132,4 +258,15 @@ class CalculatorTest extends TestCase
      * - normale getallen
      * - decimalen
      */
+    public function testLowest()
+    {
+        // Arrange
+        $numbers = [10, 20, 5];
+
+        // Act
+        $result = $this->calculator->lowest($numbers);
+
+        // Assert
+        $this->assertEquals(5, $result);
+    }
 }
