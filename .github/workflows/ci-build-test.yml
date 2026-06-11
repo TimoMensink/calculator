@@ -28,7 +28,7 @@ jobs:
 
     # 4. Test draaien (CI) + output naar bestand
     - name: Run tests
-      run: 
+      run: |
         mkdir -p test-results
         composer test -- --log-junit test-results/junit.xml
 
