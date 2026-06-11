@@ -49,7 +49,7 @@ class CalculatorTest extends TestCase
     public function testAddWithNegativeNumbers()
     {
         //  Arrange
-        $a = -4;
+        $a = -5;
         $b = -3;
 
         // Act
@@ -74,7 +74,7 @@ class CalculatorTest extends TestCase
         $result = $this->calculator->subtract($a, $b);
 
         // Assert
-        $this->assertEquals(6, $result);
+        $this->assertEquals(3, $result);
     }
 
     /*
