@@ -29,5 +29,5 @@ jobs:
           context: .
           push: true
           tags: |
-            timomensink/calculator:${{ steps.tag.outputs.version }}
-            timomensink/calculator:latest
+            timomensink07/calculator:${{ steps.tag.outputs.version }}
+            timomensink07/calculator:latest
