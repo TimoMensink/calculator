@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: calculator:latest
+    container_name: calculator-app
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - appdata:/home
+
+    restart: unless-stopped
+
+volumes:
+  appdata:
